@@ -8,7 +8,7 @@
 // Model URL from Teachable Machine
 //**************************************************
 //* as before, paste your lnk below
-let URL = "https://teachablemachine.withgoogle.com/models/[...]";
+let URL = "https://teachablemachine.withgoogle.com/models/CMBhs4EAW/";
 
 
 
@@ -118,28 +118,35 @@ function checkPose(prediction, video) {
 
         switch(poseNumber) {
             case '1':
-                if (time >= 4 && time <= 5 && !poseState.triggered) {
+                if (time >= 0.9 && time <= 3.0 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
             case '2':
-                if (time >= 8 && time <= 9 && !poseState.triggered) {
+                if (time >= 5.5 && time <= 7.5 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
             case '3':
-                if (time >= 24 && time <= 26 && !poseState.triggered) {
-                    triggerExplosion(poseState);
+                if ((time >= 11.5 && time <= 13.0 && !poseState.firstWindowTriggered) ||
+                    (time >= 17.5 && time <= 19.5 && !poseState.secondWindowTriggered)) {
+                    if (time <= 13.0) {
+                        poseState.firstWindowTriggered = true;
+                    } else {
+                        poseState.secondWindowTriggered = true;
+                    }
+                    explosionActive = true;
+                    playExplosionSound();
+                    setTimeout(() => { explosionActive = false; }, 300);
                 }
-                
                 break;
             case '4':
-                if (time >= 26 && time <= 27 && !poseState.triggered) {
+                if (time >= 15.5 && time <= 16.6 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
             case '5':
-                if (time >= 30 && !poseState.triggered) {
+                if (time >= 19.5 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
@@ -224,7 +231,7 @@ async function playInstructionVideo() {
     if (model) {
         processFrame();
     } else {
-        console.log("https://teachablemachine.withgoogle.com/models/[...]");
+        console.log("https://teachablemachine.withgoogle.com/models/CMBhs4EAW/");
     }
 }
 
