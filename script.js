@@ -8,7 +8,7 @@
 // Model URL from Teachable Machine
 //**************************************************
 //* as before, paste your lnk below
-let URL = "https://teachablemachine.withgoogle.com/models/VYmcb7E1f/";
+let URL = "https://teachablemachine.withgoogle.com/models/3QHnJthvM/";
 
 
 
@@ -223,7 +223,7 @@ async function playInstructionVideo() {
     if (model) {
         processFrame();
     } else {
-        console.log("https://teachablemachine.withgoogle.com/models/VYmcb7E1f/");
+        console.log("https://teachablemachine.withgoogle.com/models/3QHnJthvM/");
     }
 }
 
