@@ -1,4 +1,3 @@
-
 /**
  * Pose Detection Application
  * Using TensorFlow.js and Teachable Machine
@@ -118,27 +117,27 @@ function checkPose(prediction, video) {
 
         switch(poseNumber) {
             case '1':
-                if (time >= 0.5 && time <= 0.8 && !poseState.triggered) {
+                if (time >= 5 && time <= 8 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
             case '2':
-                if (time >= 0.8 && time <= 0.10 && !poseState.triggered) {
+                if (time >= 8 && time <= 10 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
             case '3':
-             if (time >= 0.14 && time <= 0.17 && !poseState.triggered) {
+                if (time >= 14 && time <= 17 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
             case '4':
-                if (time >= 0.27 && time <= 0.29 && !poseState.triggered) {
+                if (time >= 27 && time <= 29 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
             case '5':
-                if (time >= 0.30 && !poseState.triggered) {
+                if (time >= 30 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
